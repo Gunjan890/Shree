@@ -44,11 +44,42 @@ def trim_to_width(text: str, font: ImageFont.FreeTypeFont, max_w: int) -> str:
             return text[:i] + ellipsis
     return ellipsis
 
-async def get_thumb(videoid: str) -> str:
-    cache_path = os.path.join(CACHE_DIR, f"{videoid}_v4.png")
-    if os.path.exists(cache_path):
-        return cache_path
+async def gen_thumb(videoid: str):
+    try:
+        if os.path.isfile(f"cache/{videoid}_v4.png"):
+            return f"cache/{videoid}_v4.png"
 
+        url = f"https://www.youtube.com/watch?v={videoid}"
+        results = VideosSearch(url, limit=1)
+        for result in (await results.next())["result"]:
+            title = result.get("title")
+            if title:
+                title = re.sub("\W+", " ", title).title()
+            else:
+                title = "Unsupported Title"
+            duration = result.get("duration")
+            if not duration:
+                duration = "Live"
+            thumbnail_data = result.get("thumbnails")
+            if thumbnail_data:
+                thumbnail = thumbnail_data[0]["url"].split("?")[0]
+            else:
+                thumbnail = None
+            views_data = result.get("viewCount")
+            if views_data:
+                views = views_data.get("short")
+                if not views:
+                    views = "Unknown Views"
+            else:
+                views = "Unknown Views"
+            channel_data = result.get("channel")
+            if channel_data:
+                channel = channel_data.get("name")
+                if not channel:
+                    channel = "Unknown Channel"
+            else:
+                channel = "Unknown Channel"
+                
     # YouTube video data fetch
     results = VideosSearch(f"https://www.youtube.com/watch?v={videoid}", limit=1)
     try:
@@ -131,5 +162,6 @@ async def get_thumb(videoid: str) -> str:
 
     bg.save(cache_path)
     return cache_path
+
 
 
