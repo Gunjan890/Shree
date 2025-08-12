@@ -81,8 +81,7 @@ async def gen_thumb(videoid: str):
                 channel = "Unknown Channel"
                 
     # YouTube video data fetch
-    results = VideosSearch(f"https://www.youtube.com/watch?v={videoid}", limit=1)
-    try:
+    
         results_data = await results.next()
         result_items = results_data.get("result", [])
         if not result_items:
@@ -162,6 +161,7 @@ async def gen_thumb(videoid: str):
 
     bg.save(cache_path)
     return cache_path
+
 
 
 
