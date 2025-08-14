@@ -1,3 +1,8 @@
+# ATLEAST GIVE CREDITS IF YOU STEALING :(((((((((((((((((((((((((((((((((((((
+# ELSE NO FURTHER PUBLIC THUMBNAIL UPDATES
+
+import random
+import logging
 import os
 import re
 import aiofiles
@@ -5,6 +10,8 @@ import aiohttp
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont
 from youtubesearchpython.__future__ import VideosSearch
 from config import YOUTUBE_IMG_URL
+
+logging.basicConfig(level=logging.INFO)
 
 # Constants
 CACHE_DIR = "cache"
@@ -131,3 +138,8 @@ async def gen_thumb(videoid: str) -> str:
 
     bg.save(cache_path)
     return cache_path
+
+      except Exception as e:
+        logging.error(f"Error generating thumbnail for video {videoid}: {e}")
+        traceback.print_exc()
+        return None
