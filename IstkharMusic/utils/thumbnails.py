@@ -1,16 +1,10 @@
-# ATLEAST GIVE CREDITS IF YOU STEALING :(((((((((((((((((((((((((((((((((((((
-# ELSE NO FURTHER PUBLIC THUMBNAIL UPDATES
-
-import random
-import logging
 import os
 import re
 import aiofiles
 import aiohttp
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont
 from youtubesearchpython.__future__ import VideosSearch
-
-logging.basicConfig(level=logging.INFO)
+from config import YOUTUBE_IMG_URL
 
 # Constants
 CACHE_DIR = "cache"
@@ -137,4 +131,3 @@ async def get_thumb(videoid: str) -> str:
 
     bg.save(cache_path)
     return cache_path
-
