@@ -101,8 +101,8 @@ async def get_thumb(videoid: str) -> str:
     # Draw details
     draw = ImageDraw.Draw(bg)
     try:
-        title_font = ImageFont.truetype("("IstkharMus/assets/thumb/font2.ttf", 32)
-        regular_font = ImageFont.truetype("("IstkharMus/assets/thumb/font.ttf", 18)
+        title_font = ImageFont.truetype("("("IstkharMusic/assets/thumb/font2.ttf", 32)
+        regular_font = ImageFont.truetype("("IstkharMusic/assets/thumb/font.ttf", 18)
     except OSError:
         title_font = regular_font = ImageFont.load_default()
 
@@ -124,7 +124,7 @@ async def get_thumb(videoid: str) -> str:
     draw.text((BAR_X + BAR_TOTAL_LEN - (90 if is_live else 60), BAR_Y + 15), end_text, fill="red" if is_live else "black", font=regular_font)
 
     # Icons
-    icons_path = "("IstkharMus/assets/thumb/play_icons.png"
+    icons_path = "("IstkharMusic/assets/thumb/play_icons.png"
     if os.path.isfile(icons_path):
         ic = Image.open(icons_path).resize((ICONS_W, ICONS_H)).convert("RGBA")
         r, g, b, a = ic.split()
@@ -148,3 +148,4 @@ async def get_thumb(videoid: str) -> str:
         logging.error(f"Error generating thumbnail for video {videoid}: {e}")
         traceback.print_exc()
         return None
+
