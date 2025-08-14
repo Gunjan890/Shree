@@ -138,9 +138,3 @@ async def gen_thumb(videoid: str) -> str:
 
     bg.save(cache_path)
     return cache_path
-
-
-        return None
-
-
-
