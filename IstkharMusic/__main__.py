@@ -50,7 +50,7 @@ async def init():
         pass
     await Istkhar.decorators()
     LOGGER("IstkharMusic").info(
-      "-1002447776304"
+      "-1002388010839"
     )
     await idle()
     await app.stop()
@@ -60,3 +60,4 @@ async def init():
 
 if __name__ == "__main__":
     asyncio.get_event_loop().run_until_complete(init())
+
