@@ -139,7 +139,8 @@ async def gen_thumb(videoid: str) -> str:
     bg.save(cache_path)
     return cache_path
 
-        traceback.print_exc()
+
         return None
+
 
 
