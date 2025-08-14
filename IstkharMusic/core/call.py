@@ -35,7 +35,7 @@ from IstkharMusic.utils.exceptions import AssistantErr
 from IstkharMusic.utils.formatters import check_duration, seconds_to_min, speed_converter
 from IstkharMusic.utils.inline.play import stream_markup
 from IstkharMusic.utils.stream.autoclear import auto_clean
-from IstkharMusic.utils.thumbnails import gen_thumb
+from IstkharMusic.utils.thumbnails import get_thumb
 from strings import get_string
 
 autoend = {}
@@ -599,4 +599,5 @@ class Call(PyTgCalls):
 
 
 Istkhar = Call()
+
 
