@@ -21,7 +21,7 @@ from IstkharMusic.utils.decorators.language import languageCB
 from IstkharMusic.utils.formatters import seconds_to_min
 from IstkharMusic.utils.inline import close_markup, stream_markup, stream_markup_timer
 from IstkharMusic.utils.stream.autoclear import auto_clean
-from IstkharMusic.utils.thumbnails import get_thumb
+from IstkharMusic.utils.thumbnails import gen_thumb
 from config import (
     BANNED_USERS,
     SOUNCLOUD_IMG_URL,
@@ -395,4 +395,5 @@ async def markup_timer():
 
 
 asyncio.create_task(markup_timer())
+
 
