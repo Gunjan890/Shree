@@ -13,7 +13,7 @@ from IstkharMusic.utils.exceptions import AssistantErr
 from IstkharMusic.utils.inline import aq_markup, close_markup, stream_markup
 from IstkharMusic.utils.pastebin import IstkharBin
 from IstkharMusic.utils.stream.queue import put_queue, put_queue_index
-from IstkharMusic.utils.thumbnails import get_thumb
+from IstkharMusic.utils.thumbnails import gen_thumb
 
 
 async def stream(
@@ -426,4 +426,5 @@ async def stream(
             db[chat_id][0]["mystic"] = run
             db[chat_id][0]["markup"] = "tg"
             await mystic.delete()
+
 
