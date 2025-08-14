@@ -9,7 +9,7 @@ from IstkharMusic.utils.database import get_loop
 from IstkharMusic.utils.decorators import AdminRightsCheck
 from IstkharMusic.utils.inline import close_markup, stream_markup
 from IstkharMusic.utils.stream.autoclear import auto_clean
-from IstkharMusic.utils.thumbnails import get_thumb
+from IstkharMusic.utils.thumbnails import gen_thumb
 from config import BANNED_USERS
 
 
@@ -230,4 +230,5 @@ async def skip(cli, message: Message, _, chat_id):
             )
             db[chat_id][0]["mystic"] = run
             db[chat_id][0]["markup"] = "stream"
+
 
