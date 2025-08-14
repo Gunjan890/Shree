@@ -139,7 +139,8 @@ async def gen_thumb(videoid: str) -> str:
     bg.save(cache_path)
     return cache_path
 
-      except Exception as e:
+    
         logging.error(f"Error generating thumbnail for video {videoid}: {e}")
         traceback.print_exc()
         return None
+
